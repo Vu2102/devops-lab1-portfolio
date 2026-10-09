@@ -34,9 +34,9 @@ jobs:
           fi
       # Step 3: Tích hợp Lighthouse CI
       - name: Kiểm tra SEO & Performance bằng Lighthouse
-        uses: treosh/lighthouse-ci-action@v9
+        uses: treosh/lighthouse-ci-action@v12
         with: 
-          staticDistDir: ./
+          confisPath: './lighthouserc.json'
           temporaryPublicStorage: true
       # Step 4: Deploy lên GitHub Pages
       - name: Deploy to GitHub Pages
