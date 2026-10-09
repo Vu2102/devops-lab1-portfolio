@@ -36,7 +36,7 @@ jobs:
       - name: Kiểm tra SEO & Performance bằng Lighthouse
         uses: treosh/lighthouse-ci-action@v12
         with: 
-          confisPath: './lighthouserc.json'
+          configPath: './lighthouserc.json'
           temporaryPublicStorage: true
       # Step 4: Deploy lên GitHub Pages
       - name: Deploy to GitHub Pages
