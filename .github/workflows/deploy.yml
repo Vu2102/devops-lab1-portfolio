@@ -28,13 +28,17 @@ jobs:
           echo "Checking index.html exists..."
           if [ -f "index.html" ]; then
             echo "index.html found!"
-            echo "File size: $(wc -c < index.html) bytes"
           else
             echo " index.html NOT found!"
             exit 1
           fi
-
-      # Step 3: Deploy lên GitHub Pages
+      # Step 3: Tích hợp Lighthouse CI
+      - name: Kiểm tra SEO & Performance bằng Lighthouse
+        uses: treosh/lighthouse-ci-action@v12
+        with: 
+          staticDistDir: ./
+          temporaryPublicStorage: true
+      # Step 4: Deploy lên GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
